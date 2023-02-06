@@ -1,18 +1,19 @@
 <script>
-import CitiesList from "./components/CitiesList.vue";
-import HelloWorld from "./components/HelloWorld.vue";
+  import CitiesList from './components/CitiesList.vue'
+  import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  components: {
-    CitiesList,
-    HelloWorld,
-  },
-  data() {
-    return {
-      message: "Kallekalas",
-    };
-  },
-};
+  export default {
+    components: {
+      CitiesList,
+      HelloWorld
+    },
+    data() {
+      return {
+        message: 'Kallekalas',
+        jesus: 'hej'
+      }
+    }
+  }
 </script>
 
 <template>
@@ -24,7 +25,7 @@ export default {
 </template>
 
 <style>
-.black {
-  color: red;
-}
+  .black {
+    color: red;
+  }
 </style>
