@@ -10,7 +10,8 @@
     data() {
       return {
         message: 'Kallekalas',
-        jesus: 'hej'
+        jesus: 'hej',
+        mattias: 'söt'
       }
     }
   }
