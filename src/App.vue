@@ -1,32 +1,25 @@
+<template>
+  <TheHeader />
+  <main>
+    <RouterView />
+  </main>
+  <TheFooter />
+</template>
+
 <script>
-  import CitiesList from './components/CitiesList.vue'
-  import HelloWorld from './components/HelloWorld.vue'
+  import TheHeader from './components/page/TheHeader.vue'
+
+  import TheFooter from './components/page/TheFooter.vue'
 
   export default {
     components: {
-      CitiesList,
-      HelloWorld
+      TheHeader,
+      TheFooter
     },
     data() {
-      return {
-        message: 'Kallekalas',
-        jesus: 'hej',
-        mattias: 'söt'
-      }
+      return {}
     }
   }
 </script>
 
-<template>
-  <HelloWorld msg="Hello World!" />
-  <CitiesList />
-  <h1 class="black">Hej sanna, jag är en H1:a</h1>
-  <h2>{{ message }}</h2>
-  <input type="button" @click="onClick" value="Hej" />
-</template>
-
-<style>
-  .black {
-    color: red;
-  }
-</style>
+<style></style>
