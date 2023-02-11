@@ -1,17 +1,43 @@
 <script>
-  import products from '../../../products.js'
+  // import products from '../../../products.js'
   import TheProduct from './TheProduct.vue'
+  // import store from '../../store.js'
+  import API from '../../../API.js'
+  import RecentProduct from './RecentProduct.vue'
+
   export default {
-    components: { TheProduct },
+    components: { TheProduct, RecentProduct },
     data() {
       return {
-        products,
-        sum: 0
+        products: [],
+        recentProduct: null,
+        recentTimer: null
       }
     },
     methods: {
-      addToCart(product) {
-        this.sum += product.price
+      addToCart(addedObject) {
+        this.recentProduct = addedObject
+      },
+      async api() {
+        this.products = await API.fetchData()
+        console.log(this.products)
+      }
+      // addObject(price) {
+      //   store.commit('addObject', price)
+      // }
+    },
+    mounted() {
+      this.api()
+    },
+    watch: {
+      recentProduct() {
+        if (this.recentTimer) {
+          clearTimeout(this.recentTimer)
+        }
+        this.recentTimer = setTimeout(() => {
+          this.recentProduct = null
+          this.recentTimer = null
+        }, 3000)
       }
     }
   }
@@ -21,37 +47,34 @@
   .flexContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin-bottom: 10%;
-
-    /* justify-content: center; */
-    /* border-style: solid;
-    border-color: black; */
   }
 
   .container {
-    /* justify-content: space-around; */
     margin-bottom: 10%;
     width: 500px;
   }
-
-  /* .bigContainer {
-    display: flex;
-    flex-wrap: wrap;
-  } */
 </style>
 
 <template>
   <div class="container flexContainer">
+    <RecentProduct
+      :image="recentProduct.image"
+      :title="recentProduct.title"
+      :price="recentProduct.price"
+      v-if="recentProduct"
+    />
     <div class="" v-for="product in products" :key="product.name">
       <TheProduct
-        :name="product.name"
+        :image="product.image"
+        :title="product.title"
         :price="product.price"
         :description="product.description"
+        @add-to-cart="addToCart"
       />
     </div>
   </div>
 
-  {{ sum }}
-  {{ total }}
+  <p>{{ sum }}</p>
 </template>

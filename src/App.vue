@@ -22,4 +22,9 @@
   }
 </script>
 
-<style></style>
+<style>
+  @font-face {
+    font-family: 'RaleWay';
+    src: 'RaleWay' url('');
+  }
+</style>

@@ -1,12 +1,16 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex'
 
 const mutations = {
     increment(state) {
-      state.counter += 1;
+      state.product += 1
     },
+    addObject(state, object) {
+      state.counter.push(object)
+    }
   },
+  getters = {},
   state = {
-    counter: 0,
-  };
+    counter: []
+  }
 
-export default createStore({ mutations, state, strict: true });
+export default createStore({ mutations, state, getters, strict: true })

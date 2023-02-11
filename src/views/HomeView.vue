@@ -25,18 +25,15 @@
     justify-content: center;
   }
 </style> -->
-
-<template>
-  <TheProducts />
-</template>
-
 <script>
-  import TheProducts from '../components/products/AllProducts.vue'
-
+  import AllProducts from '../components/products/AllProducts.vue'
   export default {
-    components: { TheProducts },
+    components: { AllProducts },
     data() {
       return {}
     }
   }
 </script>
+<template>
+  <AllProducts />
+</template>
