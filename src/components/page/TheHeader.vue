@@ -13,12 +13,13 @@
 
 <style>
   .navbar {
-    background-color: grey;
+    background-color: #7d7d7d;
     width: 100%;
-    height: 80px;
-    color: white;
+    height: 100px;
+    color: black;
     display: flex;
     justify-content: space-around;
+    font-size: 25px;
   }
 
   ul {

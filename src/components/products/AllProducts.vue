@@ -22,9 +22,6 @@
         this.products = await API.fetchData()
         console.log(this.products)
       }
-      // addObject(price) {
-      //   store.commit('addObject', price)
-      // }
     },
     mounted() {
       this.api()
@@ -46,26 +43,27 @@
 <style scoped>
   .flexContainer {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: space-around; */
     margin-bottom: 10%;
   }
 
-  .container {
+  /* .container {
     margin-bottom: 10%;
     width: 500px;
-  }
+  } */
 </style>
 
 <template>
-  <div class="container flexContainer">
+  <div class="flexContainer">
+    <!-- <div class="container"> -->
     <RecentProduct
       :image="recentProduct.image"
       :title="recentProduct.title"
       :price="recentProduct.price"
       v-if="recentProduct"
     />
-    <div class="" v-for="product in products" :key="product.name">
+    <template v-for="product in products" :key="product.name">
       <TheProduct
         :image="product.image"
         :title="product.title"
@@ -73,7 +71,7 @@
         :description="product.description"
         @add-to-cart="addToCart"
       />
-    </div>
+    </template>
   </div>
 
   <p>{{ sum }}</p>

@@ -22,9 +22,10 @@
   }
 </script>
 
-<style>
-  @font-face {
-    font-family: 'RaleWay';
-    src: 'RaleWay' url('');
+<style lang="scss">
+  $background-color: #f0f2f5;
+
+  body {
+    background-color: $background-color;
   }
 </style>
