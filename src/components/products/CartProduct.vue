@@ -32,10 +32,6 @@
   }
 
   .flexContainer {
-    /* justify-content: center; */
-    /* border-style: solid;
-    border-color: white; */
-    /* flex-direction: row; */
     padding: 5%;
 
     width: 50%;

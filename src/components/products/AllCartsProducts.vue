@@ -5,7 +5,8 @@
     data() {
       return {
         products: [],
-        cart: []
+        cart: [],
+        price: 0
       }
     },
     computed: {
@@ -19,25 +20,8 @@
     methods: {
       removeProduct(index) {
         this.$store.dispatch('removeProduct', index)
-      },
-      cartTotal(price) {
-        this.$store.dispatch('CartTotal', price)
       }
-
-      // increase(id) {
-      //   this.store.dispatch('increase', id)
-      // },
-      // decrease(id) {
-      //   this.store.dispatch('decrease', id)
-      // }
     }
-
-    // props: {
-    //   image: { required: true, type: String },
-    //   title: { required: true, type: String },
-    //   description: { required: true, type: String },
-    //   price: { required: true, type: Number }
-    // }
   }
 </script>
 
@@ -64,4 +48,5 @@
       Remove product
     </button>
   </div>
+  <p>Total:{{ getTotal }} €</p>
 </template>

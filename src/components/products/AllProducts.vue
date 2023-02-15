@@ -1,7 +1,6 @@
 <script>
-  // import products from '../../../products.js'
   import TheProduct from './TheProduct.vue'
-  // import store from '../../store.js'
+
   import API from '../../../API.js'
   import RecentProduct from './RecentProduct.vue'
 
@@ -9,9 +8,9 @@
     components: { TheProduct, RecentProduct },
     data() {
       return {
-        products: [],
         recentProduct: null,
-        recentTimer: null
+        recentTimer: null,
+        productView: null
       }
     },
     methods: {
@@ -19,8 +18,14 @@
         this.recentProduct = addedObject
       },
       async api() {
-        this.products = await API.fetchData()
+        let products = await API.fetchData()
+        this.$store.dispatch('setProducts', products)
         console.log(this.products)
+      }
+    },
+    computed: {
+      getProducts() {
+        return this.$store.getters.getProducts
       }
     },
     mounted() {
@@ -47,29 +52,23 @@
     flex-wrap: wrap;
     margin-bottom: 10%;
   }
-
-  /* .container {
-    margin-bottom: 10%;
-    width: 500px;
-  } */
 </style>
 
 <template>
   <div class="flexContainer">
-    <!-- <div class="container"> -->
     <RecentProduct
       :image="recentProduct.image"
       :title="recentProduct.title"
       :price="recentProduct.price"
       v-if="recentProduct"
     />
-    <template v-for="product in products" :key="product.name">
+    <template v-for="(product, index) in getProducts" :key="product.name">
       <TheProduct
+        @add-to-cart="addToCart"
         :image="product.image"
         :title="product.title"
         :price="product.price"
-        :description="product.description"
-        @add-to-cart="addToCart"
+        :index="index"
       />
     </template>
   </div>

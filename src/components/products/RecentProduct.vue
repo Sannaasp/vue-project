@@ -3,9 +3,7 @@
     data() {
       return {}
     },
-    //   // watch: {
-    //   //   counter(sum),
-    // },
+
     methods: {},
     props: {
       image: { required: true, type: String },

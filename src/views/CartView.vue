@@ -2,8 +2,6 @@
   import TestSummary from '../components/notuse/TestSummary.vue'
   import CartProduct from '../components/products/CartProduct.vue'
   import AllCartsProducts from '../components/products/AllCartsProducts.vue'
-  // import { mapState } from 'vuex'
-  // import store from '../store'
 
   export default {
     components: { TestSummary, CartProduct, AllCartsProducts },
@@ -11,25 +9,6 @@
       this.products
       return { value: '', message: null, recension: '' }
     }
-
-    // state: {
-    //   cart: []
-    // },
-    // methods: {
-    //   increase() {
-    //     this.value++
-    //   },
-    //   decrease() {
-    //     this.value--
-    //   },
-    //   remove() {
-    //     this.value = ''
-    //   },
-    //   onSubmit() {
-    //     this.message = this.recension
-    //     event.preventDefault()
-    //   }
-    // }
   }
 </script>
 
@@ -39,7 +18,7 @@
   <h5>Write an review</h5>
   <form @submit="onSubmit">
     <input v-model="recension" />
-    <input :disabled="recension.length === 0" type="submit" value="Skicka" />
+    <input :disabled="recension.length === 0" type="submit" value="Send" />
   </form>
   <p>{{ message }}</p>
 </template>

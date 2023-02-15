@@ -2,7 +2,7 @@ import Vuex from 'vuex'
 export default new Vuex.Store({
   state: {
     cart: [],
-    total: 0
+    products: []
   },
 
   mutations: {
@@ -11,10 +11,10 @@ export default new Vuex.Store({
     },
     removeProduct(state, index) {
       state.cart.splice(index, 1)
+    },
+    setProducts(state, products) {
+      state.products = products
     }
-    // cartTotal(state, price) {
-    //   state.total.(price)
-    // }
   },
 
   actions: {
@@ -23,37 +23,30 @@ export default new Vuex.Store({
     },
     removeProduct({ commit }, index) {
       commit('removeProduct', index)
+    },
+    setProducts({ commit }, products) {
+      commit('setProducts', products)
     }
-    // cartTotal({ commit }, price) {
-    //   commit('cartTotal', price)
-    // }
-    // increase({ commit }, id) {
-    //   commit('increase', id)
-    // },
-    // decrease({ commit }, id) {
-    //   commit('decrease', id)
-    // },
-    // total({ commit }, price) {
-    //   commit('total', price)
-    // }
   },
   getters: {
     getCart: (state) => {
       return state.cart
+    },
+    getTotal: (state) => {
+      let total = 0
+      for (let i = 0; i < state.cart.length; i++) {
+        const product = state.cart[i]
+        total += product.price
+      }
+      return total
+    },
+    getProducts: (state) => {
+      return state.products
+    },
+    getProduct: (state) => (index) => {
+      console.log(index)
+      return state.products[index]
     }
-    // cartTotal(state) {
-    //   return state.cartProducts.reduce(
-    //     (total, product) => total + product.price * product.quantity,
-    //     0
-    //   )
-    // }
-    // getTotal: (state) => {
-    //   let sum = 0
-    //   state.sum.map(() => {
-    //     sum += product.price
-    //   })
-    //   return total
-    // }
   }
 })
 
