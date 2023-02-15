@@ -20,7 +20,6 @@
       async api() {
         let products = await API.fetchData()
         this.$store.dispatch('setProducts', products)
-        console.log(this.products)
       }
     },
     computed: {
@@ -72,6 +71,4 @@
       />
     </template>
   </div>
-
-  <p>{{ sum }}</p>
 </template>

@@ -30,13 +30,10 @@
     width: 10%;
     height: 10%;
   }
-
-  .flexContainer {
-  }
 </style>
 
 <template>
-  <div class="" v-for="(product, index) in getCart" :key="product.name">
+  <div v-for="(product, index) in getCart" :key="product.name">
     <CartProduct
       :image="product.image"
       :title="product.title"

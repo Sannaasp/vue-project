@@ -44,10 +44,7 @@ export default new Vuex.Store({
       return state.products
     },
     getProduct: (state) => (index) => {
-      console.log(index)
       return state.products[index]
     }
   }
 })
-
-// export default createStore({ mutations, state, getters, actions, strict: true })

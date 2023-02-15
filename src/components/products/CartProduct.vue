@@ -1,5 +1,4 @@
 <script>
-  import { useStore } from 'vuex'
   export default {
     data() {
       return {}

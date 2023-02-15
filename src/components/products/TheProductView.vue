@@ -1,12 +1,5 @@
 <script>
   export default {
-    methods: {
-      addProduct(product) {
-        this.$store.dispatch('addProduct', product)
-        this.$emit('addToCart', product)
-      }
-    },
-
     computed: {
       getProduct() {
         return this.$store.getters.getProduct(this.index)

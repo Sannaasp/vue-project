@@ -1,13 +1,17 @@
 <script>
-  import TestSummary from '../components/notuse/TestSummary.vue'
-  import CartProduct from '../components/products/CartProduct.vue'
   import AllCartsProducts from '../components/products/AllCartsProducts.vue'
 
   export default {
-    components: { TestSummary, CartProduct, AllCartsProducts },
+    components: { AllCartsProducts },
     data() {
       this.products
       return { value: '', message: null, recension: '' }
+    },
+    methods: {
+      onSubmit() {
+        this.message = this.recension
+        this.recension = ''
+      }
     }
   }
 </script>
@@ -16,10 +20,10 @@
   <h3>Your cart:</h3>
   <AllCartsProducts />
   <h5>Write an review</h5>
-  <form @submit="onSubmit">
+  <button @click="onSubmit">
     <input v-model="recension" />
     <input :disabled="recension.length === 0" type="submit" value="Send" />
-  </form>
+  </button>
   <p>{{ message }}</p>
 </template>
 
