@@ -34,7 +34,7 @@
 
 <template>
   <div class="flexContainer container">
-    <div class="image"></div>
+    <div class="image" />
     <h2>Added to cart</h2>
     <img class="image" :src="image" />
     <h5>{{ title }}</h5>

@@ -12,7 +12,7 @@
       index: { required: true, type: Number },
       title: { required: true, type: String },
       price: { required: true, type: Number },
-      description: { required: false, type: String }
+      description: { required: true, type: String }
     }
   }
 </script>

@@ -40,7 +40,7 @@
 
 <template>
   <div class="flexContainer">
-    <div class="image"></div>
+    <div class="image" />
     <img class="image" :src="image" />
     <h5>{{ title }}</h5>
     <p>{{ description }}</p>
